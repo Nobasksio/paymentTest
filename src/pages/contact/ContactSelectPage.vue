@@ -1,5 +1,5 @@
 <template >
-    <div >
+    <div class="an-page">
         <app-header
                 header-name="Select contact"
                 createRoute="/contact/create"

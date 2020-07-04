@@ -1,6 +1,5 @@
 <template >
-    <transition name="slide-fade" >
-        <q-page class="row items-stretch justify-between" >
+        <q-page class="row items-stretch justify-between an-page" >
             <div class="col-12 column justify-between main-container" >
                 <fieldset class="" >
                     <legend align="center" > Make a payment</legend >
@@ -30,10 +29,9 @@
                         </li >
                     </ul >
                 </fieldset >
-                <q-btn color='green' @click="makePayment">Pay</q-btn >
+                <q-btn color='green' @click="makePayment" >Pay</q-btn >
             </div >
         </q-page >
-    </transition >
 </template >
 
 <script lang="ts" >
@@ -49,7 +47,7 @@ export default Vue.extend({
     ...mapState('mainStore', ['contactId', 'paymentMethodId', 'amount']),
   },
   methods: {
-    goToRoute(route: string): void{
+    goToRoute(route: string): void {
       this.$router.push(route);
     },
     makePayment(): void {
@@ -58,5 +56,6 @@ export default Vue.extend({
   },
 });
 </script >
-<style scoped>
+<style scoped >
+
 </style >

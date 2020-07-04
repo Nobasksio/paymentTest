@@ -1,5 +1,5 @@
 <template >
-    <q-page class="row items-stretch justify-between" >
+    <q-page class="row items-stretch justify-between an-page" >
         <div class="col-12 main-container-success" >
             <div class="success-massage-area" >
                 <img src="/success.png" class='success-icon' alt="" >
@@ -49,4 +49,5 @@ export default {
         flex-direction: column;
         justify-content: end;
     }
+
 </style >

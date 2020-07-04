@@ -1,8 +1,7 @@
 <template >
-    <div >
+    <div class="an-page">
         <app-header
                 header-name="New contact"
-                createRoute="/contact/create"
         ></app-header >
         <div class="col-12 column justify-between main-container">
             <fieldset class="" >

@@ -1,10 +1,12 @@
 <template >
-    <div v-ripple class="credit-card shadow-2">
+    <div v-ripple
+         @click="chooseAction"
+         class="credit-card shadow-2">
         <div></div>
-        <div>Elchenkov Artur</div>
+        <div>{{fullName}}</div>
         <div class="row justify-between">
-            <div>**** 1234</div>
-            <div>05/22</div>
+            <div>{{cardString}}</div>
+            <div>{{expiryString}}</div>
         </div>
         <q-btn @click.stop="goCreate"
                flat
@@ -17,6 +19,33 @@
 <script lang="ts" >
 export default {
   name: 'CardItem',
+  props: {
+    fullName: {
+      type: String,
+    },
+    cardNumber: {
+      type: String,
+    },
+    expiryDate: {
+      type: String,
+    },
+    chooseAction: {
+      type: Function,
+    },
+  },
+  computed: {
+    expiryString() {
+      const month : string = this.expiryDate.substring(0, 2);
+      const year: number | string = this.expiryDate.substring(2);
+
+      return `${month}/${year}`;
+    },
+    cardString() {
+      const card: string = this.cardNumber.substring(this.cardNumber.length - 4);
+
+      return `**** ${card}`;
+    },
+  },
 };
 </script >
 

@@ -1,13 +1,21 @@
 export interface MainStateInterface {
   contactId: number | null,
-  paymentMethodId: number | null,
+  paymentMethod: IPaymentMethod,
   amount: number | null,
   paymentIsFinished: boolean
 }
 
+export interface IPaymentMethod {
+  id: number| null,
+  type: 'card' | 'account',
+}
+
 const state: MainStateInterface = {
   contactId: null,
-  paymentMethodId: null,
+  paymentMethod: {
+    id: null,
+    type: 'card',
+  },
   amount: null,
   paymentIsFinished: false,
 };

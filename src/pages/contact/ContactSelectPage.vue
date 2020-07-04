@@ -5,9 +5,16 @@
                 createRoute="/contact/create"
         ></app-header >
         <div class="main-container" >
-            <contact-item first-name="Arthur"
-                          last-name="Elchenkov"
-                          email="a420673@yandex.ru"
+            <div class="text-center" v-if="contacts.length === 0">
+                You don't have any contacts. Let's create It!
+                <q-btn to="/contact/create" class="q-mt-md">Create new Contact</q-btn>
+            </div>
+            <contact-item :first-name="contact.firstName"
+                          :last-name="contact.lastName"
+                          :email="contact.email"
+                          :key="contact.id"
+                          :chooseAction="()=>setContactId(contact.id)"
+                          v-for="contact in contacts"
             />
         </div >
     </div >
@@ -17,6 +24,7 @@
 import Vue from 'vue';
 import AppHeader from 'layouts/AppHeader.vue';
 import ContactItem from 'components/contact/ContactItem.vue';
+import { mapState, mapMutations } from 'vuex';
 
 export default Vue.extend({
   name: 'ContactSelectPage',
@@ -24,7 +32,11 @@ export default Vue.extend({
     AppHeader,
     ContactItem,
   },
+  computed: {
+    ...mapState('contactStore', ['contacts']),
+  },
   methods: {
+    ...mapMutations('mainStore', ['setContactId']),
     goBack() {
       this.$router.push('/');
     },

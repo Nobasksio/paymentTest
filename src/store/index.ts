@@ -2,6 +2,9 @@ import { store } from 'quasar/wrappers';
 import Vuex from 'vuex';
 
 import mainStore from './main-store';
+import contactStore from './contact';
+import paymentMethodStore from './payment-method';
+
 // import { ExampleStateInterface } from './module-example/state';
 
 /*
@@ -14,6 +17,8 @@ export interface StoreInterface {
   // example: ExampleStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
   mainStore: unknown;
+  contactStore: unknown;
+  paymentMethodStore: unknown;
 }
 
 export default store(({ Vue }) => {
@@ -22,6 +27,8 @@ export default store(({ Vue }) => {
   const Store = new Vuex.Store<StoreInterface>({
     modules: {
       mainStore,
+      contactStore,
+      paymentMethodStore,
     },
 
     // enable strict mode (adds overhead!)

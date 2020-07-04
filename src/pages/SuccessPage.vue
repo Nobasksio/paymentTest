@@ -10,7 +10,7 @@
             <div class="buntton-area" >
                 <q-btn no-caps
                        color='green'
-                       @click="$router.push('/')"
+                       @click="makeAnotherOne"
                        class="full-width" >Make another one
                 </q-btn >
             </div >
@@ -21,6 +21,12 @@
 <script >
 export default {
   name: 'SuccessPage',
+  methods: {
+    makeAnotherOne() {
+      this.$store.commit('mainStore/resetPayment');
+      this.$router.push('/');
+    },
+  },
 };
 </script >
 

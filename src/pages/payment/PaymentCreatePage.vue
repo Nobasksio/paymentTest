@@ -24,6 +24,8 @@
                         <li >
                             <label for="full-name" >Full name</label >
                             <input type="text"
+                                   :value="newCard.fullName"
+                                   @input="(e)=>setFullName(e.target.value)"
                                    name="full-name"
                                    class="plain-input"
                                    id="full-name" >
@@ -31,6 +33,8 @@
                         <li >
                             <label for="card-number" >Card number</label >
                             <input type="text"
+                                   :value="newCard.number"
+                                   @input="(e)=>setCardNumber(e.target.value)"
                                    name="card-number"
                                    class="plain-input"
                                    id="card-number" >
@@ -38,18 +42,23 @@
                         <li >
                             <label for="expiry-date" >Expiry date</label >
                             <input type="text"
+                                   :value="newCard.expiryDate"
+                                   @input="(e)=>setExpiryDate(e.target.value)"
                                    name="expiry-date"
                                    class="plain-input"
                                    id="expiry-date" >
                         </li >
                     </ul >
-                    <q-btn class="full-width" >Save</q-btn >
+                    <q-btn @click='saveCard'
+                           class="full-width" >Save</q-btn >
                 </fieldset >
                 <fieldset class="" v-else key="account">
                     <ul role="none" >
                         <li >
                             <label for="account-name" >Account name</label >
                             <input type="text"
+                                   :value="newAccount.name"
+                                   @input="(e)=>setAccountName(e.target.value)"
                                    name="full-name"
                                    class="plain-input"
                                    id="account-name" >
@@ -57,6 +66,8 @@
                         <li >
                             <label for="account-number" >Account number</label >
                             <input type="text"
+                                   :value="newAccount.number"
+                                   @input="(e)=>setAccountNumber(e.target.value)"
                                    name="card-number"
                                    class="plain-input"
                                    id="account-number" >
@@ -64,12 +75,15 @@
                         <li >
                             <label for="bsd" >BSD</label >
                             <input type="text"
+                                   :value="newAccount.bsb"
+                                   @input="(e)=>setAccountBsb(e.target.value)"
                                    name="bsd"
                                    class="plain-input"
                                    id="bsd" >
                         </li >
                     </ul >
-                    <q-btn class="full-width" >Save</q-btn >
+                    <q-btn @click='saveAccount'
+                            class="full-width" >Save</q-btn >
                 </fieldset >
             </transition-group >
         </div >
@@ -78,6 +92,7 @@
 
 <script lang="ts" >
 import AppHeader from 'layouts/AppHeader.vue';
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
   name: 'PaymentCreatePage',
@@ -90,6 +105,20 @@ export default {
         { label: 'Bank account', value: 'account' },
       ],
     };
+  },
+  computed: {
+    ...mapState('paymentMethodStore', ['newCard', 'newAccount']),
+  },
+  methods: {
+    ...mapMutations('paymentMethodStore', [
+      'setFullName',
+      'setCardNumber',
+      'setExpiryDate',
+      'setAccountName',
+      'setAccountNumber',
+      'setAccountBsb',
+    ]),
+    ...mapActions('paymentMethodStore', ['saveCard', 'saveAccount']),
   },
 };
 </script >

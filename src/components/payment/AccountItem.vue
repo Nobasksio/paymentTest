@@ -1,6 +1,7 @@
 <template >
     <div
             v-ripple
+            @click="chooseAction"
             class="credit-card shadow-2" >
         <div >
             <div >{{accountName}}</div >
@@ -29,6 +30,9 @@ export default {
     },
     BSB: {
       type: Number,
+    },
+    chooseAction: {
+      type: Function,
     },
   },
 };

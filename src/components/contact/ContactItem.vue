@@ -1,5 +1,5 @@
 <template >
-    <div v-ripple class="contact-item">
+    <div v-ripple class="contact-item" @click="chooseAction">
         <div class="contact-item-name"> {{firstName}} {{lastName}}</div>
         <div class="contact-item-email">{{email}}</div>
     </div>
@@ -18,6 +18,9 @@ export default {
     email: {
       type: String,
     },
+    chooseAction: {
+      type: Function,
+    },
   },
 };
 </script >
@@ -27,7 +30,6 @@ export default {
         border: 1px solid rgba(106, 106, 106, 0.24);
         padding: 5px;
         position: relative;
-
 
     }
     .contact-item-name{

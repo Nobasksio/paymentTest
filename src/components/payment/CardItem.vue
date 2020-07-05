@@ -16,36 +16,36 @@
     </div >
 </template >
 
-<script lang="ts" >
-    import Vue from 'vue';
-    import cardMasked from '../../mixins/cardMasked';
+<script >
+import Vue from 'vue';
+import cardMasked from '../../mixins/cardMasked';
 
-    export default Vue.extend({
-        name: 'CardItem',
-        mixins: [cardMasked],
-        props: {
-            fullName: {
-                type: String,
-            },
-            cardNumber: {
-                type: String,
-            },
-            expiryDate: {
-                type: String,
-            },
-            chooseAction: {
-                type: Function,
-            },
-        },
-        computed: {
-            expiryString() {
-                const month: string = this.expiryDate.substring(0, 2);
-                const year: number | string = this.expiryDate.substring(2);
+export default Vue.extend({
+  name: 'CardItem',
+  mixins: [cardMasked],
+  props: {
+    fullName: {
+      type: String,
+    },
+    cardNumber: {
+      type: String,
+    },
+    expiryDate: {
+      type: String,
+    },
+    chooseAction: {
+      type: Function,
+    },
+  },
+  computed: {
+    expiryString() {
+      const month = this.expiryDate.substring(0, 2);
+      const year = this.expiryDate.substring(2);
 
-                return `${month}/${year}`;
-            },
-        },
-    });
+      return `${month}/${year}`;
+    },
+  },
+});
 </script >
 
 <style scoped >

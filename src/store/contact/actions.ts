@@ -4,11 +4,11 @@ import { StoreInterface } from '../index';
 
 const actions: ActionTree<IContactStore, StoreInterface> = {
   saveContact(context) {
-
     context.commit('setContactId', (new Date()).toString());
     const newContact = { ...context.state.newContact };
     context.commit('addContact', newContact);
     context.commit('resetContact');
+    // @ts-ignore
     this.$router.go(-1);
   },
 };

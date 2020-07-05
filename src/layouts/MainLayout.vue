@@ -9,8 +9,10 @@
     </q-layout >
 </template >
 
-<script >
-export default {
+<script>
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'MainLayout',
   data() {
     return {
@@ -35,7 +37,7 @@ export default {
   mounted() {
     console.log(this.$store.$router);
   },
-};
+});
 </script >
 <style >
     .slide-left-enter-active {

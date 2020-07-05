@@ -8,6 +8,7 @@ const actions: ActionTree<IPaytentStore, StoreInterface> = {
     const newCard = { ...context.state.newCard };
     context.commit('addCard', newCard);
     context.commit('resetNewCard');
+    // @ts-ignore
     this.$router.go(-1);
   },
   saveAccount(context) {
@@ -15,6 +16,7 @@ const actions: ActionTree<IPaytentStore, StoreInterface> = {
     const newAccount = { ...context.state.newAccount };
     context.commit('addAccount', newAccount);
     context.commit('resetNewAccount');
+    // @ts-ignore
     this.$router.go(-1);
   },
 };

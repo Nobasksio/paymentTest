@@ -42,8 +42,8 @@
 <script >
 import AppHeader from 'layouts/AppHeader.vue';
 import CardItem from 'components/payment/CardItem.vue';
+import AccountItem from 'components/payment/AccountItem.vue';
 import { mapState, mapMutations } from 'vuex';
-import AccountItem from '../../components/payment/AccountItem';
 
 export default {
   name: 'PaymentSelectPage',

@@ -37,11 +37,11 @@ export default store(({ Vue }) => {
     plugins: [
       createPersistedState({
         storage: {
-          getItem: key => ls.get(key),
+          getItem: (key) => ls.get(key),
           setItem: (key, value) => ls.set(key, value),
-          removeItem: key => ls.remove(key)
-        }
-      })
+          removeItem: (key) => ls.remove(key),
+        },
+      }),
     ],
 
     // enable strict mode (adds overhead!)

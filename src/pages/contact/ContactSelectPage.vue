@@ -23,7 +23,7 @@
     </div >
 </template >
 
-<script lang="ts" >
+<script >
 import Vue from 'vue';
 import AppHeader from 'layouts/AppHeader.vue';
 import ContactItem from 'components/contact/ContactItem.vue';

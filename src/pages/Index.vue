@@ -48,12 +48,13 @@
     </q-page >
 </template >
 
-<script lang="ts" >
+<script>
 import Vue from 'vue';
 import { mapState, mapMutations } from 'vuex';
+import VeeValidate from 'vee-validate';
 import cardMasked from '../mixins/cardMasked';
 import validateMixin from '../mixins/validateMixin';
-import VeeValidate from 'vee-validate';
+
 Vue.use(VeeValidate);
 
 export default Vue.extend({
@@ -61,7 +62,7 @@ export default Vue.extend({
   data() {
     return {};
   },
-    mixins: [cardMasked, validateMixin],
+  mixins: [cardMasked, validateMixin],
   computed: {
     ...mapState('mainStore', ['contactId', 'paymentMethod', 'amount']),
     ...mapState('contactStore', ['contacts']),
@@ -92,10 +93,10 @@ export default Vue.extend({
   },
   methods: {
     ...mapMutations('mainStore', ['setAmount']),
-    goToRoute(route: string): void {
+    goToRoute(route) {
       this.$router.push(route);
     },
-    makePayment(): void {
+    makePayment() {
       this.goToRoute('success');
     },
   },

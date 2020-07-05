@@ -47,7 +47,7 @@
     </div >
 </template >
 
-<script lang="ts" >
+<script>
 import Vue from 'vue';
 import AppHeader from 'layouts/AppHeader.vue';
 import { mapState, mapMutations, mapActions } from 'vuex';

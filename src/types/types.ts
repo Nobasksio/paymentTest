@@ -1,0 +1,3 @@
+interface nextFunctinI {
+    () : void
+}

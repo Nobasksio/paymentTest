@@ -1,12 +1,12 @@
 export interface MainStateInterface {
-  contactId: number | null,
+  contactId: string | null,
   paymentMethod: IPaymentMethod,
   amount: number | null,
   paymentIsFinished: boolean
 }
 
 export interface IPaymentMethod {
-  id: number| null,
+  id: string | null,
   type: 'card' | 'account',
 }
 

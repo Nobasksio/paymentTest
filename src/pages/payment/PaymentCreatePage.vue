@@ -117,18 +117,20 @@
     </div >
 </template >
 
-<script lang="ts" >
+<script>
 import Vue from 'vue';
 import AppHeader from 'layouts/AppHeader.vue';
 import { mapState, mapActions, mapMutations } from 'vuex';
-import { TheMask } from 'vue-the-mask';
+
 import VeeValidate from 'vee-validate';
+// eslint-disable-next-line
+const VueTheMask = require('vue-the-mask');
 
 Vue.use(VeeValidate);
 
 export default {
   name: 'PaymentCreatePage',
-  components: { AppHeader, TheMask },
+  components: { AppHeader, TheMask: VueTheMask.TheMask },
   data() {
     return {
       createType: 'card',

@@ -115,7 +115,7 @@ module.exports = configure((ctx) => ({
     'fadeOutDownBig',
     'tada',
     'fadeOutLeftBig',
-    'fadeInleftBig',
+    'fadeInLeftBig',
     'fadeInRightBig',
     'fadeOutRightBig',
   ],

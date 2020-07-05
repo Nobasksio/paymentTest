@@ -34,21 +34,18 @@ export default Vue.extend({
       }
     },
   },
-  mounted() {
-    console.log(this.$store.$router);
-  },
 });
 </script >
 <style >
     .slide-left-enter-active {
-        animation: leftComming 1s;
+        animation: leftComming 0.5s;
         position: fixed;
         width: 100%;
 
     }
 
     .slide-left-leave-active {
-        animation: rightGoing 1s;
+        animation: rightGoing 0.5s;
         position: fixed;
         width: 100%;
     }
@@ -77,7 +74,7 @@ export default Vue.extend({
     }
 
     .slide-right-enter-active {
-        animation: rightComming 1s;
+        animation: rightComming 0.5s;
         opacity: 0;
         z-index: 1;
         position: fixed;
@@ -85,7 +82,7 @@ export default Vue.extend({
     }
 
     .slide-right-leave-active {
-        animation: leftGoing 1s;
+        animation: leftGoing 0.5s;
         position: fixed;
         width: 100%;
     }
@@ -112,14 +109,14 @@ export default Vue.extend({
     }
 
     .slide-down-enter-active {
-        animation: upComming 1s;
+        animation: upComming 0.5s;
         opacity: 0;
         position: fixed;
         width: 100%;
     }
 
     .slide-down-leave-active {
-        animation: downGoing 1s;
+        animation: downGoing 0.5s;
         position: fixed;
         width: 100%;
     }
@@ -146,14 +143,14 @@ export default Vue.extend({
     }
 
     .slide-up-enter-active {
-        animation: downComing 1s;
+        animation: downComing 0.5s;
         opacity: 1;
         position: fixed;
         width: 100%;
     }
 
     .slide-up-leave-active {
-        animation: upGoing 1s;
+        animation: upGoing 0.5s;
         position: fixed;
         width: 100%;
     }

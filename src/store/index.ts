@@ -1,9 +1,13 @@
 import { store } from 'quasar/wrappers';
 import Vuex from 'vuex';
 
+import createPersistedState from 'vuex-persistedstate';
+import SecureLS from 'secure-ls';
 import mainStore from './main-store';
 import contactStore from './contact';
 import paymentMethodStore from './payment-method';
+
+const ls = new SecureLS({ isCompression: false });
 
 // import { ExampleStateInterface } from './module-example/state';
 
@@ -30,6 +34,15 @@ export default store(({ Vue }) => {
       contactStore,
       paymentMethodStore,
     },
+    plugins: [
+      createPersistedState({
+        storage: {
+          getItem: key => ls.get(key),
+          setItem: (key, value) => ls.set(key, value),
+          removeItem: key => ls.remove(key)
+        }
+      })
+    ],
 
     // enable strict mode (adds overhead!)
     // for dev mode only

@@ -13,7 +13,10 @@
                         :fullName="card.fullName"
                         :cardNumber="card.number"
                         :expiry-date="card.expiryDate"
-                        :chooseAction="()=>setPaymentMethod({id: card.id,type: 'card'})"
+                        :chooseAction="()=>{
+                            setPaymentMethod({id: card.id,type: 'card'})
+                            $router.push('/')
+                        }"
                         :key="card.id"
                         v-for="card in cards"
                 />
@@ -24,7 +27,10 @@
                         :account-name="account.name"
                         :account-number="account.number"
                         :BSB="account.bsb"
-                        :chooseAction="()=>setPaymentMethod({id: account.id,type: 'account'})"
+                        :chooseAction="()=>{
+                            setPaymentMethod({id: account.id,type: 'account'})
+                            $router.push('/')
+                        }"
                         :key="account.id"
                         v-for="account in accounts"
                 />

@@ -2,7 +2,7 @@
     <q-layout view="lHh Lpr lFf" >
         <q-page-container >
             <transition :name="transitionName"
-                        >
+            >
                 <router-view />
             </transition >
         </q-page-container >
@@ -20,7 +20,7 @@ export default {
   watch: {
     $route(to, from) {
       if (to.name === 'success') {
-        this.transitionName = 'slide-up'
+        this.transitionName = 'slide-up';
       } else if (from.name === 'success') {
         this.transitionName = 'slide-down';
       } else if (to.path === '/') {
@@ -32,15 +32,19 @@ export default {
       }
     },
   },
+  mounted() {
+    console.log(this.$store.$router);
+  },
 };
 </script >
 <style >
-    .slide-left-enter-active{
+    .slide-left-enter-active {
         animation: leftComming 1s;
         position: fixed;
         width: 100%;
 
     }
+
     .slide-left-leave-active {
         animation: rightGoing 1s;
         position: fixed;
@@ -59,6 +63,7 @@ export default {
 
         }
     }
+
     @keyframes rightGoing {
         from {
             transform: translateX(0);
@@ -68,13 +73,15 @@ export default {
             transform: translateX(100%);
         }
     }
-    .slide-right-enter-active{
+
+    .slide-right-enter-active {
         animation: rightComming 1s;
         opacity: 0;
         z-index: 1;
         position: fixed;
         width: 100%;
     }
+
     .slide-right-leave-active {
         animation: leftGoing 1s;
         position: fixed;
@@ -91,6 +98,7 @@ export default {
             opacity: 1;
         }
     }
+
     @keyframes leftGoing {
         from {
             transform: translateX(0);
@@ -101,18 +109,19 @@ export default {
         }
     }
 
-
-    .slide-down-enter-active{
+    .slide-down-enter-active {
         animation: upComming 1s;
         opacity: 0;
         position: fixed;
         width: 100%;
     }
+
     .slide-down-leave-active {
         animation: downGoing 1s;
         position: fixed;
         width: 100%;
     }
+
     @keyframes upComming {
         from {
             transform: translateY(-100%);
@@ -123,6 +132,7 @@ export default {
             opacity: 1;
         }
     }
+
     @keyframes downGoing {
         from {
             transform: translateY(0);
@@ -133,17 +143,19 @@ export default {
         }
     }
 
-    .slide-up-enter-active{
+    .slide-up-enter-active {
         animation: downComing 1s;
         opacity: 1;
         position: fixed;
         width: 100%;
     }
+
     .slide-up-leave-active {
         animation: upGoing 1s;
         position: fixed;
         width: 100%;
     }
+
     @keyframes upGoing {
         from {
             transform: translateY(0);
@@ -156,6 +168,7 @@ export default {
         }
 
     }
+
     @keyframes downComing {
         from {
             transform: translateY(100%);

@@ -13,7 +13,10 @@
                           :last-name="contact.lastName"
                           :email="contact.email"
                           :key="contact.id"
-                          :chooseAction="()=>setContactId(contact.id)"
+                          :chooseAction="()=>
+                          {setContactId(contact.id)
+                           $router.push('/')
+                           }"
                           v-for="contact in contacts"
             />
         </div >

@@ -10,9 +10,13 @@
                                name="contact"
                                :value="contact"
                                v-validate="'required'"
-                               class="plain-input"
-                               @focus="goToRoute('contact')"
+                               class="plain-input hidden"
                                id="contact" >
+                        <div class="mock-input" @click="goToRoute('contact')">
+                            <span>
+                                {{contact}}
+                            </span>
+                        </div>
                         <span class="text-error" >{{ errors.first('contact') }}</span >
 
                     </li >
@@ -22,9 +26,14 @@
                                name="payment-method"
                                :value="paymentMethodString"
                                v-validate="'required'"
-                               class="plain-input"
+                               class="plain-input hidden"
                                @focus="goToRoute('payment-method')"
                                id="payment-method" >
+                        <div class="mock-input" @click="goToRoute('payment-method')">
+                            <span>
+                                {{paymentMethodString}}
+                            </span>
+                        </div>
                         <span class="text-error" >{{ errors.first('payment-method') }}</span >
                     </li >
                     <li >

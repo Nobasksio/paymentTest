@@ -2,7 +2,7 @@
     <q-page class="row items-stretch justify-between an-page" >
         <div class="col-12 column justify-between main-container" >
             <fieldset class="" >
-                <legend align="center" > Make a payment</legend >
+                <legend align="center" class="text-bold"> Make a payment</legend >
                 <ul role="none" >
                     <li >
                         <label for="contact" >Select contact</label >

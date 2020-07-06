@@ -13,10 +13,7 @@
                         :fullName="card.fullName"
                         :cardNumber="card.number"
                         :expiry-date="card.expiryDate"
-                        :chooseAction="()=>{
-                            setPaymentMethod({id: card.id,type: 'card'})
-                            $router.push('/')
-                        }"
+                        :chooseAction="()=>choosePaymentMethod({id: card.id,type: 'card'})"
                         :key="card.id"
                         v-for="card in cards"
                 />
@@ -27,10 +24,7 @@
                         :account-name="account.name"
                         :account-number="account.number"
                         :BSB="account.bsb"
-                        :chooseAction="()=>{
-                            setPaymentMethod({id: account.id,type: 'account'})
-                            $router.push('/')
-                        }"
+                        :chooseAction="()=>choosePaymentMethod({id: account.id,type: 'account'})"
                         :key="account.id"
                         v-for="account in accounts"
                 />
@@ -43,7 +37,7 @@
 import AppHeader from 'layouts/AppHeader.vue';
 import CardItem from 'components/payment/CardItem.vue';
 import AccountItem from 'components/payment/AccountItem.vue';
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'PaymentSelectPage',
@@ -56,7 +50,7 @@ export default {
     ...mapState('paymentMethodStore', ['cards', 'accounts']),
   },
   methods: {
-    ...mapMutations('mainStore', ['setPaymentMethod']),
+    ...mapActions('mainStore', ['choosePaymentMethod']),
   },
 };
 </script >

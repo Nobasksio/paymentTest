@@ -4,7 +4,7 @@
             <div class="success-massage-area" >
                 <img src="/success.png" class='success-icon' alt="" >
                 <h2 class="text-center" >
-                    Payment Compered successfully
+                    Payment Compered Successfully
                 </h2 >
             </div >
             <div class="buntton-area" >

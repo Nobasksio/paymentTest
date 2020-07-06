@@ -30,7 +30,7 @@ export default {
         border: 1px solid rgba(106, 106, 106, 0.24);
         padding: 5px;
         position: relative;
-
+        margin-bottom: 10px;
     }
     .contact-item-name{
         font-size: 1.25em;

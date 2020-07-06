@@ -13,10 +13,7 @@
                           :last-name="contact.lastName"
                           :email="contact.email"
                           :key="contact.id"
-                          :chooseAction="()=>
-                          {setContactId(contact.id)
-                           $router.push('/')
-                           }"
+                          :chooseAction="()=>setContact(contact.id)"
                           v-for="contact in contacts"
             />
         </div >
@@ -27,7 +24,7 @@
 import Vue from 'vue';
 import AppHeader from 'layouts/AppHeader.vue';
 import ContactItem from 'components/contact/ContactItem.vue';
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default Vue.extend({
   name: 'ContactSelectPage',
@@ -39,7 +36,7 @@ export default Vue.extend({
     ...mapState('contactStore', ['contacts']),
   },
   methods: {
-    ...mapMutations('mainStore', ['setContactId']),
+    ...mapActions('mainStore', ['setContact']),
     goBack() {
       this.$router.push('/');
     },
@@ -48,20 +45,4 @@ export default Vue.extend({
 </script >
 
 <style scoped >
-    .slide-leave-active,
-    .slide-enter-active {
-        transition: 1s;
-    }
-
-    .slide-enter
-        /* .slide-fade-leave-active до версии 2.1.8 */
-    {
-        transform: translateX(100);
-
-    }
-
-    .slide-enter-to {
-
-        transform: translateX(0);
-    }
 </style >

@@ -26,10 +26,10 @@ export default {
       type: String,
     },
     accountNumber: {
-      type: Number,
+      type: String,
     },
     BSB: {
-      type: Number,
+      type: String,
     },
     chooseAction: {
       type: Function,
